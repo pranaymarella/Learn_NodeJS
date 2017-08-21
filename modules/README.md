@@ -133,3 +133,10 @@ fs.writeFile('mynewfile3.txt', 'Hello content!', function (err) {
     console.log('Saved!');
 });
 ```
+
+### Update Files
+
+The File System module has methods for updating files
+
+- fs.appendFile()
+- fs.writeFile()
