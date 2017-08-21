@@ -8,7 +8,7 @@ Modules are similar to JavaScript Libraries. They are a set of functions that we
 
 To include a module, we must use the `require()` function. Example:
 
-```
+```javascript
 var http = require("http");
 
 http.createServer(function (req, res) {
@@ -27,7 +27,7 @@ We can create our own modules that we can include in our applications. This is u
 
 Example:
 
-```
+```javascript
 exports.myDateTime = function () {
     return Date();
 };
@@ -39,7 +39,7 @@ exports.myDateTime = function () {
 
 Suppose we saved the myDateTime module in a file called **myfirstmodule.js** then we can use this module in other parts of our applicaiton like so:
 
-```
+```javascript
 var http = require('http');
 var dt = require('./myfirstmodule');
 
@@ -67,7 +67,7 @@ The `fs.readFile()` method is used to read files on the computer
 
 Example:
 
-```
+```javascript
 var http = require('http');
 var fs = require('fs');
 
@@ -95,7 +95,7 @@ The `fs.appendFile()` method appends content that we provide to the end of the f
 
 Example:
 
-```
+```javascript
 var fs = require('http');
 
 fs.appendFile('mynewfile1.txt', 'Hello content!', function(err) {
@@ -110,7 +110,7 @@ The `fs.open()` method takes a "flag" as the second argument. ex: if the flage i
 
 Example:
 
-```
+```javascript
 var fs = require('fs');
 
 fs.open('mynewfile2.txt', 'w', function (err, file) {
@@ -125,7 +125,7 @@ The `fs.writeFile()` method replaces the specified file and content if it exists
 
 Example:
 
-```
+```javascript
 var fs = require('fs');
 
 fs.writeFile('mynewfile3.txt', 'Hello content!', function (err) {
