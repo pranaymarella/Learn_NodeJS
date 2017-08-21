@@ -61,7 +61,7 @@ Node.js file system module allows us to use the computers file system and do com
 - Delete Files
 - Rename Files
 
-#### Read Files
+### Read Files
 
 The `fs.readFile()` method is used to read files on the computer
 
@@ -82,14 +82,14 @@ http.createServer(function (req, res) {
 
 The above code will display on port 8080 the .html file that we ask node.js to read
 
-#### Create Files
+### Create Files
 
 The File System has methods for creating new files:
 - fs.appendFile()
 - fs.open()
 - fs.writeFile()
 
-###### Append File
+#### Append File
 
 The `fs.appendFile()` method appends content that we provide to the end of the file that we provide. If the file does not exist, the file will be created.
 
@@ -104,7 +104,7 @@ fs.appendFile('mynewfile1.txt', 'Hello content!', function(err) {
 });
 ```
 
-###### Open File
+#### Open File
 
 The `fs.open()` method takes a "flag" as the second argument. ex: if the flage is "w" for write, the open method will open the specified file for writing. If the file doesn't exist, then an empty file is created
 
@@ -119,7 +119,7 @@ fs.open('mynewfile2.txt', 'w', function (err, file) {
 });
 ```
 
-###### Write File
+#### Write File
 
 The `fs.writeFile()` method replaces the specified file and content if it exists. If the file does not exist, a new file, containing the specified content, will be created.
 
