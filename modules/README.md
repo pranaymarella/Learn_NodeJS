@@ -7,6 +7,7 @@ Modules are similar to JavaScript Libraries. They are a set of functions that we
 ## Including Modules
 
 To include a module, we must use the 'require()' function. Example:
+
 '''
 var http = require('http');
 
@@ -25,6 +26,7 @@ The above code will create a local server that responds to requests by saying 'H
 We can create our own modules that we can include in our applications. This is useful for when we need to build a big application by focusing on smaller components and putting them together.
 
 Example:
+
 '''
 exports.myDateTime = function () {
     return Date();
@@ -64,6 +66,7 @@ Node.js file system module allows us to use the computers file system and do com
 The 'fs.readFile()' method is used to read files on the computer
 
 Example:
+
 '''
 var http = require('http');
 var fs = require('fs');
@@ -91,6 +94,7 @@ The File System has methods for creating new files:
 The 'fs.appendFile()' method appends content that we provide to the end of the file that we provide. If the file does not exist, the file will be created.
 
 Example:
+
 '''
 var fs = require('http');
 
@@ -105,6 +109,7 @@ fs.appendFile('mynewfile1.txt', 'Hello content!', function(err) {
 The 'fs.open()' method takes a "flag" as the second argument. ex: if the flage is "w" for write, the open method will open the specified file for writing. If the file doesn't exist, then an empty file is created
 
 Example:
+
 '''
 var fs = require('fs');
 
@@ -113,11 +118,13 @@ fs.open('mynewfile2.txt', 'w', function (err, file) {
     console.log('Saved!');
 });
 '''
+
 ###### Write File
 
 The 'fs.writeFile()' method replaces the specified file and content if it exists. If the file does not exist, a new file, containing the specified content, will be created.
 
 Example:
+
 '''
 var fs = require('fs');
 
