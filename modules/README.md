@@ -9,11 +9,11 @@ Modules are similar to JavaScript Libraries. They are a set of functions that we
 To include a module, we must use the 'require()' function. Example:
 
 '''
-var http = require('http');
+var http = require("http");
 
 http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end('Hello World!');
+    res.writeHead(200, {"Content-Type": "text/html"});
+    res.end("Hello World!");
 }).listen(8080);
 '''
 
