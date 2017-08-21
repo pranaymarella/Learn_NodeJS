@@ -19,7 +19,7 @@ http.createServer(function (req, res) {
 
 The above code will create a local server that responds to requests by saying **Hello World** when you go to the address: [http://localhost:8080/] on your web browser.
 
-* A list of built in Node.js Modules can be found [here] (https://www.w3schools.com/nodejs/ref_modules.asp).
+* A list of built in Node.js Modules can be found [here](https://www.w3schools.com/nodejs/ref_modules.asp).
 
 ## Creating our own modules
 
@@ -185,6 +185,6 @@ fs.rename('mynewfile1.txt', 'myrenamedfile.txt', function (err) {
 
 ## Credit
 
-All of these examples/code can be found [here] (https://www.w3schools.com/nodejs/nodejs_filesystem.asp)
+All of these examples/code can be found [here](https://www.w3schools.com/nodejs/nodejs_filesystem.asp)
 
 Thanks to w3schools for helping me in learning NodeJS modules
