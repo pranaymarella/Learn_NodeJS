@@ -52,7 +52,7 @@ http.createServer(function (req, res) {
 
 The `require("./myfirstmodule")` command looks at our file system and finds the module that we created and saved in the file called **myfirstmodule.js** and fetches it. Now `dt` can use this module within our current file.
 
-## File System Module
+# File System Module
 
 Node.js file system module allows us to use the computers file system and do common operations such as:
 - Read Files
@@ -61,7 +61,7 @@ Node.js file system module allows us to use the computers file system and do com
 - Delete Files
 - Rename Files
 
-### Read Files
+## Read Files
 
 The `fs.readFile()` method is used to read files on the computer
 
@@ -82,14 +82,14 @@ http.createServer(function (req, res) {
 
 The above code will display on port 8080 the .html file that we ask node.js to read
 
-### Create Files
+## Create Files
 
 The File System has methods for creating new files:
 - fs.appendFile()
 - fs.open()
 - fs.writeFile()
 
-#### Append File
+### Append File
 
 The `fs.appendFile()` method appends content that we provide to the end of the file that we provide. If the file does not exist, the file will be created.
 
@@ -104,7 +104,7 @@ fs.appendFile('mynewfile1.txt', 'Hello content!', function(err) {
 });
 ```
 
-#### Open File
+### Open File
 
 The `fs.open()` method takes a "flag" as the second argument. ex: if the flage is "w" for write, the open method will open the specified file for writing. If the file doesn't exist, then an empty file is created
 
@@ -119,7 +119,7 @@ fs.open('mynewfile2.txt', 'w', function (err, file) {
 });
 ```
 
-#### Write File
+### Write File
 
 The `fs.writeFile()` method replaces the specified file and content if it exists. If the file does not exist, a new file, containing the specified content, will be created.
 
@@ -134,9 +134,57 @@ fs.writeFile('mynewfile3.txt', 'Hello content!', function (err) {
 });
 ```
 
-### Update Files
+## Update Files
 
 The File System module has methods for updating files
 
 - fs.appendFile()
 - fs.writeFile()
+
+The `fs.appendFile()` method appends specified content at the end of the specified file
+
+Example:
+
+```javascript
+var fs = require('fs');
+
+fs.append('mynewfile1.txt', ' This is my text.', function(err) {
+    if (err) throw err;
+    console.log('Updated!');
+});
+```
+
+### Delete Files
+
+Deleting a file with the File System Module can be done using the fs.unlink() method
+
+Example:
+
+```javascript
+var fs = require('fs');
+
+fs.unlink('mynewfile2.txt', function (err) {
+    if (err) throw err;
+    console.log('File deleted!');
+});
+```
+### Rename Files
+
+Renaming files with the File System Module can be done using the fs.rename() method
+
+Example:
+
+```
+var fs = require('fs');
+
+fs.rename('mynewfile1.txt', 'myrenamedfile.txt', function (err) {
+    if (err) throw err;
+    console.log('File Renamed!');
+});
+```
+
+## Credit
+
+All of these examples/code can be found [here] (https://www.w3schools.com/nodejs/nodejs_filesystem.asp)
+
+Thanks to w3schools for helping me in learning NodeJS modules
