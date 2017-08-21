@@ -8,7 +8,7 @@ Modules are similar to JavaScript Libraries. They are a set of functions that we
 
 To include a module, we must use the 'require()' function. Example:
 
-'''
+'''JavaScript
 var http = require("http");
 
 http.createServer(function (req, res) {
