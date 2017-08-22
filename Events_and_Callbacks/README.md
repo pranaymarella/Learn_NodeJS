@@ -33,3 +33,7 @@ eventEmitter.emit('scream');
 ```
 
 The myEventHandler is a function that will print 'I hear a scream' to the console whenever it is called. We bind this to the 'scream' handler using eventEmitter. Now whenver the 'scream' handler is 'emitted' the myEventHandler will trigger.
+
+## Credit
+
+All of these examples can be found [here](https://www.w3schools.com/nodejs/nodejs_events.asp).
