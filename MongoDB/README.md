@@ -178,3 +178,28 @@ If we do not specify an `_id` field, then mondoDB will automatically add one for
 In the previous example we did not specify an `_id` field, but looking at our result object we can see that an `_id` was assigned.
 
 MongoDB assigns a unique `_id` for each document. Even if we do specify an `_id` field, it must be unique for each document.
+
+### Find One
+
+If we want to find data within a collection, we can use the `find` methods. This is similar to a `select` in SQL.
+
+`findOne()` method returns the first occurrence in the selection.
+
+The first parameter of `findOne` is a query object
+
+Example of `findOne()` method:
+
+```javascript
+var http = require('http');
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/mydb";
+
+MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    db.collection("INSERT_NAME_OF_COLLECTION").findOne({}, function(err, result) {
+        if (err) throw err;
+        console.log(result.name);
+        db.close();
+    });
+});
+```
