@@ -8,7 +8,7 @@ We can create events in NodeJS that are binded to certain actions. When the even
 
 NodeJS has a built-in module for events called "Events" where we can build our own events.
 
-```
+```javascript
 var events = require('events');
 var eventEmitter = new events.EventEmitter();
 ```
