@@ -203,3 +203,23 @@ MongoClient.connect(url, function(err, db) {
     });
 });
 ```
+
+While the `findOne()` returns only the first occurrence in the selection, the `find()` method returns all occurrences in the selection.
+
+The first parameter of the `find()` method is a query object. If we use an empty query object, it will select all documents in the collection.
+
+Example:
+
+```javascript
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/mydb";
+
+MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    db.collection("customers").find({}).toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        db.close();
+    });
+});
+```
