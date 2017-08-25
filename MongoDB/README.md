@@ -274,3 +274,30 @@ MongoClient.connect(url, function(err, db) {
     });
 });
 ```
+
+### Sorting the Results
+
+We can use `sort()` to sort the results of a query in ascending or descending order.
+
+`sort()` takes one parameter, which is an object defining the sorting order.
+
+Example:
+
+```javascript
+var http = require('http');
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/mydb";
+
+MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var mysort = { name: 1};
+    db.collection("customers").find().sort(mysort).toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        db.close();
+    });
+});
+```
+
+
+If we wanted the order to be descending use `-1` instead of `1` in the sort variable. Example `var mysort = { name: -1 };`
