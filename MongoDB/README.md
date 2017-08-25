@@ -181,7 +181,7 @@ MongoDB assigns a unique `_id` for each document. Even if we do specify an `_id`
 
 ### Find Methods
 
-##### findOne()
+#### findOne()
 
 If we want to find data within a collection, we can use the `find` methods. This is similar to a `select` in SQL.
 
@@ -206,7 +206,7 @@ MongoClient.connect(url, function(err, db) {
 });
 ```
 
-##### find()
+#### find()
 
 While the `findOne()` returns only the first occurrence in the selection, the `find()` method returns all occurrences in the selection.
 
@@ -221,6 +221,53 @@ var url = "mongodb://localhost:27017/mydb";
 MongoClient.connect(url, function(err, db) {
     if (err) throw err;
     db.collection("customers").find({}).toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        db.close();
+    });
+});
+```
+
+### Query Methods
+
+When we find documents within a collection using the `find()` methods, we can filter the results using a query object.
+
+Remeber that the first argument of the `find()` methods is a query object, and we can use this to limit the search.
+
+Example:
+
+```javascript
+var http = require('http');
+var MongoClient =- require('mongodb').MongoClient;
+var url = "mongod://localhost:27017/mydb";
+
+MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var query = { address: "Park Lane 38" };
+    db.collection("customers").find(query).toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        db.close();
+    });
+});
+```
+
+#### Filtering with Regular Expressions (REGEX)
+
+We can create regular expressions to find exactly what we are searching for.
+
+`IMPORTANT: Regular Expressions can only be used to query strings`
+
+Example: Finding only documents where address starts with the letter "S"
+
+```javascript
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/mydb";
+
+MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var query = { address: /^S/ };
+    db.collection("customers").find(query).toArray(function(err, result) {
         if (err) throw err;
         console.log(result);
         db.close();
