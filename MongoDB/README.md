@@ -179,7 +179,9 @@ In the previous example we did not specify an `_id` field, but looking at our re
 
 MongoDB assigns a unique `_id` for each document. Even if we do specify an `_id` field, it must be unique for each document.
 
-### Find One
+### Find Methods
+
+##### findOne()
 
 If we want to find data within a collection, we can use the `find` methods. This is similar to a `select` in SQL.
 
@@ -203,6 +205,8 @@ MongoClient.connect(url, function(err, db) {
     });
 });
 ```
+
+##### find()
 
 While the `findOne()` returns only the first occurrence in the selection, the `find()` method returns all occurrences in the selection.
 
