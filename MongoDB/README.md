@@ -299,5 +299,44 @@ MongoClient.connect(url, function(err, db) {
 });
 ```
 
-
 If we wanted the order to be descending use `-1` instead of `1` in the sort variable. Example `var mysort = { name: -1 };`
+
+### Deleting Documents
+
+To delete rows, or documents, of data in MongoDB we use the `delete` methods.
+
+To delete a single document, we can use the `deleteOne()` method.
+
+```javascript
+var http = require('http');
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/mydb";
+
+MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var myquery = { address: "Highway 37"};
+    db.collection("customers").deleteOne(myquery, function(err, obj) {
+        if (err) throw err;
+        console.log("1 document deleted");
+        db.close();
+    });
+});
+```
+
+To delete multiple documents (rows of data) we can use the `deleteMany()` method
+
+```javascript
+var http = require('http');
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/mydb";
+
+MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var query = { address: /^O/ };
+    db.collection("customers").deleteMany(query, function(err, obj) {
+        if (err) throw err;
+        console.log(obj.result.n + " document(s) deleted");
+        db.close();
+    });
+});
+```
