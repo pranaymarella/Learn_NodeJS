@@ -391,3 +391,73 @@ MongoClient.connect(url, function(err, db) {
     });
 });
 ```
+
+### Update Document
+
+We can update previously created records by using the `update` methods
+
+To update a single record, we can use the `updateOne()` method. The first parameter of the updateOne() method is a query object that contains information about which document to update. `Not: if the query finds more than one record, then it will update the first occurrence`
+
+The second parameter is an object defining the new values of the document. By default, all the fields in the document get updated except the `_id` field so we need to properly set the value of every field otherwise it will update to be a blank.
+
+```javascript
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/mydb";
+
+MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var myquery = { address: "Valley 345" };
+    var newvalues = { name: "Mickey", address: "Canyon 123" };
+    db.collection("customers").updateOne(myquery, newvalues, function(err, res) {
+        if (err) throw err;
+        console.log("1 document updated");
+        db.close();
+    });
+});
+```
+
+To update only specific fields, we can use the `$set` operator, which prevents other fields from being left empty when we update
+
+```javascript
+var MongoClient = require('mongodb');
+var url = "mongodb://localhost:27017/mydb";
+
+MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var myquery = { address: "Valley 345" };
+    var newvalues = { $set: { address: "Canyon 123" } };
+    db.collection("customers").updateOne(myquery, newvalues, function(err, res) {
+        if (err) throw err;
+        console.log("1 document updated");
+        db.close();
+    });
+});
+```
+
+so far we have only been updating one document at a time, in order to update many documents we need to use the `updateMany()` method
+
+Example:
+
+```javascript
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/mydb";
+
+MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var myquery = { address: /^S/ };
+    var newvalues = { $set: { name: "Minnie" } };
+    db.collection("customers").updateMany(myquery, newvalues, function(err, res) {
+        if (err) throw err;
+        console.log(res.result.nModified + " documents(s) updated");
+        db.close();
+    });
+});
+```
+
+#### The Result Object
+
+The resulting objects when we run a update method look like this:
+
+```
+{ n: 1, nModified: 2, ok: 1}
+```
