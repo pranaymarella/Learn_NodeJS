@@ -340,3 +340,13 @@ MongoClient.connect(url, function(err, db) {
     });
 });
 ```
+
+#### Result Object for deleteMany() method
+
+The resulting object when we use the deleteMany() method looks like so:
+
+```
+{ n: 1, ok: 1};
+```
+
+where n is the number of objects deleted.
