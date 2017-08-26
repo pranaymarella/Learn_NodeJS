@@ -350,3 +350,44 @@ The resulting object when we use the deleteMany() method looks like so:
 ```
 
 where n is the number of objects deleted.
+
+
+### Drop Collection
+
+When we want to delete a collection (table) in Mongo, we can use the `drop()` method.
+
+The drop() method takes a callback function containing the error object and the result parameter which returns true if the collection was dropped successfully.
+
+Example:
+
+```javascript
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/mydb";
+
+MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    db.collection("customers").drop(function(err, delOK) {
+        if (err) throw err;
+        if (delOK) console.log("Collection deleted");
+        db.close();
+    });
+});
+```
+
+Another way to drop a collection is by using the `db.dropCollection()` method
+
+Example:
+
+```javascript
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/mydb";
+
+MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    db.dropCollection("customers", function(err, delOK) {
+        if (err) throw err;
+        if (delOK) console.log("Collection deleted");
+        db.close();
+    });
+});
+```
