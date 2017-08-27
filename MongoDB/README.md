@@ -476,10 +476,42 @@ var url = "mongodb://localhost:27017/mydb";
 
 MongoClient.connect(url, function(err, db) {
     if (err) throw err;
-    db.collection("customers").find().limit(1).toArray(function(err, result) {
+    db.collection("customers").find().limit(10).toArray(function(err, result) {
         if (err) throw err;
         console.log(result);
         db.close();
     });
 });
 ```
+
+### Join Collections
+
+Similar to how we can join tables in a relational database, we can do an outer join using `$lookup`
+
+`$lookup` allows us to specify which collections to join and which fields should match.
+
+```javascript
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/mydb";
+
+MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    db.collection('orders').aggregate([
+        {
+            $lookup:
+            {
+                from: 'products';
+                localField: 'product_id',
+                foreignField: 'id',
+                as: 'orderdetails'
+            }
+        }
+    ], function(err, res) {
+        if (err) throw err;
+        console.log(res);
+        db.close();
+    });
+});
+```
+
+In the above example, we are using the collections `orders` and `products` and joining them based on the id's of each collection.
