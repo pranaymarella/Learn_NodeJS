@@ -461,3 +461,25 @@ The resulting objects when we run a update method look like this:
 ```
 { n: 1, nModified: 2, ok: 1}
 ```
+
+### Limit
+
+When we query the database, we can limit how many results we would like to see using the `limit()` method.
+
+The `limit()` method takes one parameter, which is a number defining how many documents (rows of data) to return
+
+Example:
+
+```javascript
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/mydb";
+
+MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    db.collection("customers").find().limit(1).toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        db.close();
+    });
+});
+```
