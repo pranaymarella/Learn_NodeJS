@@ -31,6 +31,12 @@ Now that you have Node installed, Follow these steps to learn NodeJS in order:
 - Able to create a simple http webserver using node.js
 - Able to connect to and query from a No-SQL database (MongoDB)
 
+## Where to go from here
+
+I recommend learning a web developement framework such as ExpressJS to vastly speed up web application development.
+
+[Here](https://github.com/pranaymarella/Learn_ExpressJS) is how I learned to use ExpressJS.
+
 ## Credit
 
 Most of this material can be found on W3Schools page [here](https://www.w3schools.com/nodejs/default.asp)
