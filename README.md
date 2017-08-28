@@ -37,6 +37,10 @@ I recommend learning a web developement framework such as ExpressJS to vastly sp
 
 [Here](https://github.com/pranaymarella/Learn_ExpressJS) is how I learned to use ExpressJS.
 
+## Questions and Concerns?
+
+If you would like to make changes or add to any of this material, please contact me at `prm170@g.harvard.edu` or `marella2@illinos.edu`.
+
 ## Credit
 
 Most of this material can be found on W3Schools page [here](https://www.w3schools.com/nodejs/default.asp)
